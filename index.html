@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaRP - Next Generation Roleplay</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navigation Header -->
+        <header class="header">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-rocket"></i>
+                    <span>NovaRP</span>
+                </div>
+                <nav class="nav-menu">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#characters" class="nav-link">Characters</a>
+                    <a href="#world" class="nav-link">World</a>
+                    <a href="#rules" class="nav-link">Rules</a>
+                    <a href="#community" class="nav-link">Community</a>
+                </nav>
+                <div class="user-actions">
+                    <button class="btn btn-secondary" id="loginBtn">Login</button>
+                    <button class="btn btn-primary" id="registerBtn">Register</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="hero-section" id="home">
+                <div class="hero-content">
+                    <h1 class="hero-title">Welcome to NovaRP</h1>
+                    <p class="hero-subtitle">Experience the next generation of roleplay gaming</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary btn-large" id="startGameBtn">Start Playing</button>
+                        <button class="btn btn-outline btn-large" id="learnMoreBtn">Learn More</button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="game-preview">
+                        <div class="character-card">
+                            <div class="character-avatar">
+                                <i class="fas fa-user-astronaut"></i>
+                            </div>
+                            <div class="character-info">
+                                <h3>Your Character</h3>
+                                <p>Level 1 • Explorer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Character Creation Modal -->
+            <div class="modal" id="characterModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Create Your Character</h2>
+                        <button class="close-btn" id="closeCharacterModal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="character-form" id="characterForm">
+                            <div class="form-group">
+                                <label for="characterName">Character Name</label>
+                                <input type="text" id="characterName" name="characterName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="characterClass">Class</label>
+                                <select id="characterClass" name="characterClass" required>
+                                    <option value="">Select a class</option>
+                                    <option value="explorer">Explorer</option>
+                                    <option value="merchant">Merchant</option>
+                                    <option value="warrior">Warrior</option>
+                                    <option value="diplomat">Diplomat</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="characterBackground">Background</label>
+                                <textarea id="characterBackground" name="characterBackground" rows="3" placeholder="Tell us about your character's background..."></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary" id="cancelCharacter">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Create Character</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game World Section -->
+            <section class="world-section" id="world">
+                <div class="section-header">
+                    <h2>Explore the Nova Universe</h2>
+                    <p>Discover diverse worlds and create your own story</p>
+                </div>
+                <div class="world-grid">
+                    <div class="world-card">
+                        <div class="world-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Nova Prime</h3>
+                        <p>The central hub of the Nova universe, where civilizations meet and trade.</p>
+                        <button class="btn btn-outline">Explore</button>
+                    </div>
+                    <div class="world-card">
+                        <div class="world-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h3>Frontier Worlds</h3>
+                        <p>Unexplored territories waiting for brave adventurers to discover.</p>
+                        <button class="btn btn-outline">Explore</button>
+                    </div>
+                    <div class="world-card">
+                        <div class="world-icon">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <h3>Urban Centers</h3>
+                        <p>Metropolitan areas filled with opportunities and intrigue.</p>
+                        <button class="btn btn-outline">Explore</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chat System -->
+            <section class="chat-section" id="chat">
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <h3>Global Chat</h3>
+                        <div class="chat-controls">
+                            <button class="btn btn-sm" id="clearChat">Clear</button>
+                        </div>
+                    </div>
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message system-message">
+                            <span class="message-time">[12:00]</span>
+                            <span class="message-content">Welcome to NovaRP! Start your adventure by creating a character.</span>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="chatInput" placeholder="Type your message..." maxlength="200">
+                        <button class="btn btn-primary" id="sendMessage">Send</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Character Management -->
+            <section class="character-section" id="characters">
+                <div class="section-header">
+                    <h2>Character Management</h2>
+                    <p>Manage your characters and their progression</p>
+                </div>
+                <div class="character-list" id="characterList">
+                    <div class="no-characters">
+                        <i class="fas fa-user-plus"></i>
+                        <h3>No Characters Yet</h3>
+                        <p>Create your first character to start your adventure</p>
+                        <button class="btn btn-primary" id="createFirstCharacter">Create Character</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>NovaRP</h4>
+                    <p>The next generation of roleplay gaming</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#rules">Rules</a></li>
+                        <li><a href="#community">Community</a></li>
+                        <li><a href="#support">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NovaRP. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
